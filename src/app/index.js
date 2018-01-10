@@ -2,8 +2,10 @@ import React from "react";
 import {render} from "react-dom";
 import {Header} from "./components/Header";
 import {Home} from "./components/Home";
+import {Home2} from "./components/Home2";
 
 class App extends React.Component{
+  
 	render(){
     var name = "Nelabh",age =23, user = {name:"nel",hobbies:["singing","dancing"]};
 
@@ -19,6 +21,7 @@ class App extends React.Component{
             <Home name = {name} age = {age} user = {user}>
               <p>Children Text</p>
             </Home>
+            <Home2 name = {"name"} age = {23}/>
 					</div>
 				</div>
 			</div>
