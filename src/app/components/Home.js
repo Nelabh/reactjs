@@ -4,6 +4,7 @@ export class Home extends React.Component{
 		return (
 			<div>
 				<p> New Home</p>
+				{2+3}
 			</div>
 			);
 	}
