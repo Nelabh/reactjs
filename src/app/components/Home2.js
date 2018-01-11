@@ -6,7 +6,8 @@ export class Home2 extends React.Component{
     this.age = props.age;
     this.state = {
       age: this.age,
-      status:0
+      status:0,
+      homeLink:"Changed Link"
     };
     setTimeout(()=>this.setState({status:1}),5000);
   }
@@ -27,6 +28,11 @@ export class Home2 extends React.Component{
     this.setState({
       age:this.state.age - 3
     });
+  }
+  onChangeLink(){
+    console.log('link changing');
+    console.log(this.state.homeLink);
+    this.props.changeLink(this.state.homeLink);
   }
 	render(){
     let variable = "This is dynamic";
@@ -50,6 +56,7 @@ export class Home2 extends React.Component{
         <button onClick = {()=>this.onMakeYoungerState()} className = "btn btn-primary"> Make Me Younger using state</button>
         <hr/>
         <button onClick = {this.props.greet} className = "btn btn-primary">Greet</button>
+        <button onClick = {()=>this.onChangeLink()} className = "btn btn-primary">Change Header</button>
 
 			</div>
 			);

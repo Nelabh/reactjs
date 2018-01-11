@@ -6,6 +6,19 @@ import {Home2} from "./components/Home2";
 import {Stateless} from "./components/Stateless";
 
 class App extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      homeLink: "Home"
+    }
+  }
+  onChangeLink(name){
+    console.log('app homelink');
+    console.log(name);
+    this.setState({
+      homeLink:name
+    });
+  }
   onGreet(){
     alert("Hello!");
   }
@@ -16,7 +29,7 @@ class App extends React.Component{
 			<div className = "container">
 				<div className = "row">
 					<div className = "col-xs-10 col-xs-offset-1">
-						<Header/>
+						<Header homeLink = {this.state.homeLink}/>
 					</div>
 				</div>
 				<div className = "row">
@@ -30,7 +43,11 @@ class App extends React.Component{
             <Home name = {name} age = {age} user = {user}>
               <p>Children Text</p>
             </Home>
-            <Home2 name = {"name"} age = {23} greet={this.onGreet}/>
+            <Home2 
+              changeLink = {this.onChangeLink.bind(this)} 
+              name = {"name"} 
+              age = {23} greet={this.onGreet}
+            />
 					</div>
 				</div>
 			</div>
