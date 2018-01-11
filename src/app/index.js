@@ -6,7 +6,9 @@ import {Home2} from "./components/Home2";
 import {Stateless} from "./components/Stateless";
 
 class App extends React.Component{
-  
+  onGreet(){
+    alert("Hello!");
+  }
 	render(){
     var name = "Nelabh",age =23, user = {name:"nel",hobbies:["singing","dancing"]};
 
@@ -28,7 +30,7 @@ class App extends React.Component{
             <Home name = {name} age = {age} user = {user}>
               <p>Children Text</p>
             </Home>
-            <Home2 name = {"name"} age = {23}/>
+            <Home2 name = {"name"} age = {23} greet={this.onGreet}/>
 					</div>
 				</div>
 			</div>
