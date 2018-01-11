@@ -8,6 +8,7 @@ export class Home2 extends React.Component{
       age: this.age,
       status:0
     };
+    setTimeout(()=>this.setState({status:1}),5000);
   }
   onMakeOlder(){
     this.age += 3; 
@@ -36,6 +37,7 @@ export class Home2 extends React.Component{
         <p>Name : {this.props.name}</p>
         <p>age : {this.age}</p>
         <p>State's age : {this.state.age}</p>
+        <p>State's status : {this.state.status}</p>
         <button onClick = {this.onMakeOlder.bind(this)} className = "btn btn-primary"> Make Me Older</button>
         <br/>
         <br/>
