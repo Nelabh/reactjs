@@ -7,7 +7,7 @@ export class Home2 extends React.Component{
     this.state = {
       age: this.age,
       status:0,
-      homeLink:"Changed Link"
+      homeLink: props.initialLink
     };
     setTimeout(()=>this.setState({status:1}),5000);
   }
@@ -34,6 +34,11 @@ export class Home2 extends React.Component{
     console.log(this.state.homeLink);
     this.props.changeLink(this.state.homeLink);
   }
+  onHandleChange(event){
+    this.setState({
+      homeLink:event.target.value
+    });
+  }
 	render(){
     let variable = "This is dynamic";
     console.log(this.props);
@@ -56,6 +61,10 @@ export class Home2 extends React.Component{
         <button onClick = {()=>this.onMakeYoungerState()} className = "btn btn-primary"> Make Me Younger using state</button>
         <hr/>
         <button onClick = {this.props.greet} className = "btn btn-primary">Greet</button>
+        <hr/>
+        <input type="text" value = {this.state.homeLink} onChange = {(event)=>this.onHandleChange(event)}/>
+        <hr/>
+
         <button onClick = {()=>this.onChangeLink()} className = "btn btn-primary">Change Header</button>
 
 			</div>
@@ -65,5 +74,6 @@ export class Home2 extends React.Component{
 Home2.propTypes = {
   name: PropTypes.string,
   age: PropTypes.number,
-  greet:PropTypes.func
+  greet:PropTypes.func,
+  initialLink: PropTypes.string
 };
